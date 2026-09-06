@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right-Hand Thumb Rule Physics Lab - Sajeel Sir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>👍 Right-Hand Thumb Rule Interactive Lab</h1>
+            <span style="color: #94a3b8; font-size: 0.85rem;">Sajeel Sir's Physics Interactive Suite</span>
+        </div>
+        <div class="header-tools">
+            <button class="btn" onclick="toggleLanguage()" id="langBtn">🌐 ML / EN</button>
+            <button class="btn" onclick="toggleFullScreen()">⛶ Fullscreen</button>
+        </div>
+    </header>
+
+    <div class="tab-buttons">
+        <button class="tab-btn active" onclick="switchMode('straight')">Straight Conductor (Fig 4.6 & 4.7)</button>
+        <button class="tab-btn" onclick="switchMode('loop')">Circular Loop (Fig 4.8)</button>
+    </div>
+
+    <div class="main-layout">
+        <div class="card">
+            <div class="card-header">
+                <span id="canvasTitle">🔬 Straight Conductor Circuit Lab</span>
+            </div>
+
+            <canvas id="labCanvas" width="600" height="420"></canvas>
+
+            <div class="controls">
+                <button class="btn" onclick="toggleSwitch()" id="switchBtn">🔌 Switch ON</button>
+                <button class="btn" onclick="reverseCurrent()">🔄 Reverse Current Flow</button>
+                <button class="btn btn-active" onclick="toggleHand()" id="handBtn">✋ Show Right Hand</button>
+            </div>
+
+            <div class="status-box" id="statusBox">
+                <strong>Status:</strong> Circuit is OFF.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span>🎮 Physics Practice Quiz</span>
+                <span style="color: var(--accent-yellow);" id="scoreText">⭐ 0 PTS</span>
+            </div>
+
+            <div id="quizContainer">
+                <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 5px;" id="qProgress">Question 1 of 5</div>
+                <p id="qText" style="font-weight: 600; font-size: 1rem; margin-top: 5px;">Loading Question...</p>
+                <div id="optionsList"></div>
+
+                <div class="status-box" id="explanationBox" style="display: none; margin-top: 10px;"></div>
+
+                <div class="quiz-footer">
+                    <button class="btn btn-finish" id="finishBtn" style="display: none;" onclick="finishQuiz()">🏁 Finish Test</button>
+                    <button class="btn btn-ai" id="aiBtn" style="display: none;" onclick="generateAIQuestion()">✨ Generate AI Question</button>
+                    <button class="btn" id="nextBtn" style="display: none;" onclick="nextQuestion()">Next Question ➔</button>
+                </div>
+            </div>
+
+            <div id="resultScreen" style="display: none; text-align: center; padding: 20px;">
+                <h2 style="color: var(--accent-yellow);">🎉 Test Completed!</h2>
+                <p id="finalScoreText" style="font-size: 1.2rem;">Your Score: 0 PTS</p>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-ai" onclick="resumeAIQuiz()">✨ Generate More AI Questions</button>
+                    <button class="btn" onclick="restartQuiz()">🔄 Restart Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
